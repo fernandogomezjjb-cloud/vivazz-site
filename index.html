@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Óticas Vivazz — Óculos de Grau, Sol e Lentes em Avaré/SP</title>
+    <meta name="description" content="Óticas Vivazz em Avaré/SP. Óculos de grau, óculos de sol, lentes de contato e acessórios. Marcas premium: Hoya, Zeiss, Delta, Johnson & Johnson, Bausch & Lomb. 17+ anos de atendimento personalizado.">
+    <meta name="keywords" content="Óptica em Avaré, Óculos de Grau em Avaré, Lentes de Contato em Avaré, Óticas Avaré SP, Óculos de Sol Avaré, Vivazz Avaré">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Óticas Vivazz — Enxergue o Mundo com Estilo">
+    <meta property="og:description" content="Óculos de grau, sol e lentes de contato em Avaré/SP. Marcas premium há 17+ anos.">
+    <meta property="og:url" content="https://oticavivazz.com.br">
+    <link rel="canonical" href="https://oticavivazz.com.br">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── VARIÁVEIS ── */
+        :root {
+            --c:    #00BCD4;
+            --cl:   #26C6DA;
+            --cd:   #0097A7;
+            --c10:  rgba(0,188,212,.10);
+            --c20:  rgba(0,188,212,.20);
+            --glow: rgba(0,188,212,.22);
+
+            --bk:   #FFFFFF;
+            --dk:   #F8F9FA;
+            --dk2:  #EEF2F5;
+            --card: #FFFFFF;
+            --brd:  rgba(0,0,0,.08);
+            --sh:   0 2px 16px rgba(0,0,0,.07);
+            --sh-h: 0 8px 36px rgba(0,0,0,.12);
+
+            --tx:   #1A1A1A;
+            --tx2:  #4A4A5A;
+            --tx3:  #888899;
+
+            --wa:   #25D366;
+            --nav:  72px;
+            --ease: cubic-bezier(.25,.46,.45,.94);
+            --fd:   'Cormorant Garamond', serif;
+            --fb:   'Outfit', sans-serif;
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body { font-family:var(--fb); background:var(--bk); color:var(--tx); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+        a { text-decoration:none; color:inherit; }
+        ul { list-style:none; }
+        img { max-width:100%; display:block; }
+
+        /* ── FADE-UP ── */
+        .fu { opacity:0; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease; }
+        .fu.v { opacity:1; transform:none; }
+        .fu.d1{transition-delay:.1s;} .fu.d2{transition-delay:.2s;}
+        .fu.d3{transition-delay:.3s;} .fu.d4{transition-delay:.4s;}
+
+        /* ── NAVBAR ── */
+        #nav {
+            position:fixed; top:0; left:0; right:0;
+            height:var(--nav);
+            display:flex; align-items:center; justify-content:space-between;
+            padding:0 5%;
+            z-index:1000;
+            transition:background .35s ease, box-shadow .35s ease;
+        }
+        #nav.s {
+            background:rgba(255,255,255,.96);
+            backdrop-filter:blur(18px);
+            -webkit-backdrop-filter:blur(18px);
+            box-shadow:0 1px 0 var(--brd), 0 4px 20px rgba(0,0,0,.06);
+        }
+
+        .logo { display:flex; flex-direction:column; align-items:center; gap:1px; cursor:pointer; }
+        .logo svg.crown { width:22px; fill:var(--c); filter:drop-shadow(0 0 5px var(--c10)); transition:filter .3s; }
+        .logo:hover svg.crown { filter:drop-shadow(0 0 10px var(--c)); }
+        .logo-txt { font-family:var(--fd); font-size:1.5rem; font-weight:700; letter-spacing:.22em; line-height:1; color:var(--tx); }
+        .logo-txt em { font-style:normal; color:var(--c); }
+
+        .nav-links { display:flex; align-items:center; gap:1.8rem; }
+        .nav-links a { font-size:.8rem; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--tx2); transition:color .3s; position:relative; }
+        .nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:var(--c); border-radius:2px; transition:width .3s; }
+        .nav-links a:hover { color:var(--c); }
+        .nav-links a:hover::after { width:100%; }
+        .nav-cta { background:var(--c) !important; color:#fff !important; padding:.46rem 1.2rem; border-radius:6px; font-weight:700 !important; box-shadow:0 4px 14px var(--glow); transition:all .3s !important; }
+        .nav-cta:hover { background:var(--cd) !important; box-shadow:0 6px 22px var(--glow) !important; transform:translateY(-1px) !important; }
+        .nav-cta::after { display:none !important; }
+
+        .ham { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; background:none; border:none; }
+        .ham span { display:block; width:24px; height:2px; background:var(--tx); border-radius:2px; transition:all .3s; }
+
+        .mob-menu {
+            position:fixed; inset:0;
+            background:rgba(255,255,255,.98);
+            backdrop-filter:blur(20px);
+            z-index:998;
+            display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2rem;
+            transform:translateX(100%);
+            transition:transform .45s cubic-bezier(.77,0,.175,1);
+        }
+        .mob-menu.open { transform:translateX(0); }
+        .mob-menu a { font-family:var(--fd); font-size:2.8rem; font-weight:600; color:var(--tx); transition:color .3s; }
+        .mob-menu a:hover { color:var(--c); }
+        .mob-close { position:absolute; top:1.5rem; right:5%; background:none; border:none; cursor:pointer; padding:.5rem; }
+        .mob-close svg { width:28px; height:28px; stroke:var(--tx); }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+            position: relative;
+            overflow: hidden;
+            background: var(--bk);
+        }
+
+        /* Bloco turquesa arredondado à direita */
+        .hero-blob {
+            position: absolute;
+            top: 0; right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(160deg, #E0F7FA 0%, #B2EBF2 55%, #80DEEA 100%);
+            clip-path: ellipse(90% 100% at 100% 50%);
+            z-index: 0;
+        }
+
+        /* Pontos decorativos */
+        .hero-dots {
+            position:absolute;
+            z-index:1;
+            display:grid;
+            grid-template-columns:repeat(5, 1fr);
+            gap:10px;
+        }
+        .hero-dots.left  { bottom:12%; left:4%; }
+        .hero-dots.right { top:18%; right:2%; }
+        .hero-dots span { width:5px; height:5px; border-radius:50%; background:var(--c); opacity:.25; display:block; }
+
+        /* Coluna texto */
+        .hero-left {
+            position:relative; z-index:2;
+            flex:1;
+            display:flex; flex-direction:column; justify-content:center;
+            padding:calc(var(--nav) + 3.5rem) 4% 4rem 5%;
+            max-width:54%;
+        }
+
+        /* Coluna imagem */
+        .hero-right {
+            position:relative; z-index:2;
+            flex:0 0 46%;
+            display:flex; align-items:center; justify-content:center;
+            padding:calc(var(--nav) + 2rem) 4% 3rem 1%;
+        }
+
+        .hero-badge {
+            display:inline-flex; align-items:center; gap:.5rem;
+            background:rgba(0,188,212,.12);
+            border:1px solid rgba(0,188,212,.25);
+            color:var(--cd);
+            font-size:.7rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+            padding:.38rem 1rem; border-radius:20px;
+            margin-bottom:1.6rem; width:fit-content;
+            animation:fadeU 1s ease .1s both;
+        }
+        .hero-badge::before { content:''; width:6px; height:6px; background:var(--c); border-radius:50%; animation:blink 2s ease-in-out infinite; }
+        @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.25;} }
+
+        .hero-h1 {
+            font-family:var(--fd);
+            font-size:clamp(2.8rem, 5.5vw, 5.8rem);
+            font-weight:700; line-height:1.03;
+            color:var(--tx);
+            margin-bottom:.8rem;
+            animation:fadeU 1s ease .2s both;
+        }
+        .hero-h1 em { font-style:italic; color:var(--c); }
+
+        .hero-sub {
+            font-size:clamp(.9rem,1.4vw,1.1rem);
+            color:var(--tx2); font-weight:300; line-height:1.75;
+            max-width:430px; margin-bottom:2.2rem;
+            animation:fadeU 1s ease .35s both;
+        }
+
+        .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; animation:fadeU 1s ease .5s both; }
+
+        /* Números flutuantes abaixo dos botões */
+        .hero-stats {
+            display:flex; align-items:center; gap:0;
+            margin-top:2.8rem;
+            animation:fadeU 1s ease .65s both;
+        }
+        .hstat { text-align:center; padding:0 1.5rem; }
+        .hstat:first-child { padding-left:0; }
+        .hstat-n { font-family:var(--fd); font-size:2.2rem; font-weight:700; color:var(--tx); display:block; line-height:1; }
+        .hstat-l { font-size:.68rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--tx3); display:block; margin-top:.25rem; }
+        .hstat-sep { width:1px; height:38px; background:var(--brd); flex-shrink:0; }
+
+        /* Wrapper da imagem */
+        .hero-img-wrap {
+            position:relative;
+            width:100%;
+            max-width:420px;
+            animation:fadeU 1s ease .3s both;
+        }
+
+        .hero-img {
+            width:100%;
+            aspect-ratio:3/4;
+            border-radius:24px 24px 80px 24px;
+            position:relative; overflow:hidden;
+            box-shadow:0 24px 60px rgba(0,188,212,.22), 0 4px 16px rgba(0,0,0,.08);
+        }
+        .hero-img-photo {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center top;
+            display:block;
+            border-radius:24px 24px 80px 24px;
+        }
+
+        /* Círculos decorativos atrás da foto */
+        .hero-img::before {
+            content:''; position:absolute;
+            top:-24px; right:-24px;
+            width:100px; height:100px;
+            background:rgba(255,255,255,.35);
+            border-radius:50%;
+        }
+
+        /* Cards flutuantes sobre a foto */
+        .hf-card {
+            position:absolute;
+            background:#fff;
+            border-radius:12px;
+            box-shadow:var(--sh-h);
+            padding:.8rem 1rem;
+            display:flex; align-items:center; gap:.65rem;
+            animation:floatY 4s ease-in-out infinite;
+        }
+        .hf-card.tl { top:8%; left:-14%; }
+        .hf-card.br { bottom:12%; right:-12%; animation-delay:.9s; }
+        @keyframes floatY { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-7px);} }
+        .hf-emoji { font-size:1.4rem; }
+        .hf-info strong { display:block; font-size:.84rem; font-weight:700; color:var(--tx); }
+        .hf-info span   { font-size:.72rem; color:var(--tx3); }
+
+        @keyframes fadeU { from{opacity:0;transform:translateY(26px);} to{opacity:1;transform:none;} }
+
+        /* ── BOTÕES ── */
+        .btn-p {
+            display:inline-flex; align-items:center; gap:.55rem;
+            background:var(--c); color:#fff;
+            font-family:var(--fb); font-size:.86rem; font-weight:700;
+            letter-spacing:.05em; text-transform:uppercase;
+            padding:.85rem 1.8rem; border-radius:6px;
+            border:none; cursor:pointer;
+            box-shadow:0 4px 18px var(--glow);
+            transition:all .35s var(--ease);
+        }
+        .btn-p:hover { background:var(--cd); box-shadow:0 8px 28px var(--glow); transform:translateY(-2px); }
+
+        .btn-s {
+            display:inline-flex; align-items:center; gap:.55rem;
+            background:transparent; color:var(--tx);
+            font-family:var(--fb); font-size:.86rem; font-weight:600;
+            letter-spacing:.05em; text-transform:uppercase;
+            padding:.85rem 1.8rem; border-radius:6px;
+            border:1.5px solid var(--brd);
+            cursor:pointer;
+            transition:all .35s var(--ease);
+        }
+        .btn-s:hover { border-color:var(--c); color:var(--c); transform:translateY(-2px); }
+
+        /* ── SEÇÕES COMUNS ── */
+        section { padding:6rem 5%; }
+
+        .sec-label {
+            font-size:.68rem; font-weight:600;
+            letter-spacing:.3em; text-transform:uppercase;
+            color:var(--c); margin-bottom:.7rem;
+            display:flex; align-items:center; gap:.75rem;
+        }
+        .sec-label::before { content:''; display:inline-block; width:22px; height:2px; background:var(--c); border-radius:2px; }
+
+        .sec-title { font-family:var(--fd); font-size:clamp(2rem,4vw,3.4rem); font-weight:700; line-height:1.08; color:var(--tx); margin-bottom:1.2rem; }
+        .sec-title em { font-style:italic; color:var(--c); }
+
+        .sec-desc { font-size:.95rem; color:var(--tx2); max-width:540px; line-height:1.75; }
+
+        /* ── TICKER DE MARCAS ── */
+        .ticker-wrap { position:relative; background:var(--dk); overflow:hidden; }
+        .ticker-border { height:1px; background:linear-gradient(90deg,transparent,var(--c),transparent); }
+        .ticker-track {
+            padding:1.1rem 0;
+            -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0%,black 8%,black 92%,transparent 100%);
+        }
+        .ticker-list { display:flex; gap:0; width:max-content; animation:tickerScroll 22s linear infinite; }
+        .ticker-wrap:hover .ticker-list { animation-play-state:paused; }
+        @keyframes tickerScroll { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+        .tk-item {
+            display:inline-flex; align-items:center; gap:.6rem;
+            padding:0 2.5rem;
+            font-family:var(--fd); font-size:1.1rem; font-weight:600;
+            letter-spacing:.06em; color:var(--tx2);
+            white-space:nowrap; transition:color .3s;
+        }
+        .tk-item:hover { color:var(--c); }
+        .tk-dot { font-size:.38rem; color:var(--c); opacity:.55; flex-shrink:0; }
+
+        /* ── MARCAS / NÚMEROS ── */
+        #marcas { background:var(--bk); }
+
+        .marcas-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4.5rem; align-items:center; }
+
+        .stats { display:grid; grid-template-columns:1fr 1fr; gap:1.1rem; margin-top:2rem; }
+        .stat {
+            background:var(--card); border:1px solid var(--brd);
+            border-radius:10px; padding:1.6rem;
+            box-shadow:var(--sh);
+            transition:all .4s var(--ease);
+        }
+        .stat:hover { border-color:var(--c); transform:translateY(-5px); box-shadow:var(--sh-h), 0 0 0 1px var(--c20); }
+        .stat-n { font-family:var(--fd); font-size:2.8rem; font-weight:700; color:var(--c); line-height:1; margin-bottom:.2rem; }
+        .stat-l { font-size:.8rem; color:var(--tx3); }
+
+        .brands-right .sec-desc { margin-bottom:1.8rem; }
+        .brand-chips { display:flex; flex-wrap:wrap; gap:.6rem; }
+        .chip { background:var(--dk); border:1px solid var(--brd); border-radius:5px; padding:.4rem 1rem; font-size:.8rem; font-weight:500; color:var(--tx2); letter-spacing:.04em; transition:all .3s; }
+        .chip:hover { border-color:var(--c); color:var(--c); background:var(--c10); }
+
+        /* ── PRODUTOS ── */
+        #produtos { background:var(--dk); }
+
+        .prod-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:2.5rem; flex-wrap:wrap; gap:1.5rem; }
+
+        .prod-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.2rem; }
+
+        .prod-card { background:var(--card); border:1px solid var(--brd); border-radius:12px; overflow:hidden; box-shadow:var(--sh); transition:all .4s var(--ease); }
+        .prod-card:hover { border-color:var(--c); transform:translateY(-8px); box-shadow:var(--sh-h), 0 0 0 1px var(--c20); }
+
+        .prod-icon-area {
+            height:260px;
+            width:100%;
+            display:block;
+            background:#FFFFFF;
+            border-radius:10px 10px 0 0;
+            padding:0;
+            position:relative; overflow:hidden;
+        }
+        .prod-img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            object-position:center;
+            display:block;
+        }
+        .prod-svg-icon { width:110px; height:110px; color:var(--c); display:block; }
+
+        .prod-body { padding:1.3rem; }
+        .prod-body h3 { font-family:var(--fd); font-size:1.3rem; font-weight:700; color:var(--tx); margin-bottom:.4rem; }
+        .prod-body p  { font-size:.82rem; color:var(--tx2); line-height:1.65; margin-bottom:1.1rem; }
+
+        .btn-wa {
+            display:inline-flex; align-items:center; gap:.45rem;
+            background:rgba(37,211,102,.09); border:1.5px solid rgba(37,211,102,.3);
+            color:#1a9e3f; font-size:.78rem; font-weight:700;
+            padding:.52rem 1rem; border-radius:6px;
+            transition:all .3s; cursor:pointer;
+        }
+        .btn-wa:hover { background:rgba(37,211,102,.16); border-color:var(--wa); box-shadow:0 4px 16px rgba(37,211,102,.18); }
+        .btn-wa svg { width:15px; height:15px; fill:currentColor; flex-shrink:0; }
+
+        /* ── SERVIÇOS ── */
+        #servicos { background:var(--bk); }
+
+        .serv-wrap { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+
+        .serv-list { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .serv-item { display:flex; align-items:flex-start; gap:1.1rem; padding:1.3rem; background:var(--card); border:1px solid var(--brd); border-radius:10px; box-shadow:var(--sh); transition:all .4s var(--ease); }
+        .serv-item:hover { border-color:var(--c); transform:translateX(6px); box-shadow:var(--sh-h); }
+        .serv-ico { width:44px; height:44px; background:var(--c10); border:1px solid var(--c20); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0; }
+        .serv-txt h4 { font-size:.95rem; font-weight:600; color:var(--tx); margin-bottom:.28rem; }
+        .serv-txt p  { font-size:.82rem; color:var(--tx2); line-height:1.6; }
+
+        .hbox { background:var(--card); border:1px solid var(--brd); border-radius:14px; padding:2.2rem; box-shadow:var(--sh); }
+        .hbox h3 { font-family:var(--fd); font-size:1.75rem; font-weight:700; color:var(--tx); margin-bottom:1.5rem; }
+        .h-row { display:flex; justify-content:space-between; align-items:center; padding:.7rem 0; border-bottom:1px solid var(--brd); font-size:.88rem; }
+        .h-row:last-of-type { border-bottom:none; }
+        .h-dia { color:var(--tx2); }
+        .h-hr  { color:var(--tx); font-weight:600; }
+        .h-hr.off { color:var(--tx3); font-weight:400; }
+        .cinfo { margin-top:1.8rem; display:flex; flex-direction:column; gap:.7rem; }
+        .crow { display:flex; align-items:center; gap:.7rem; font-size:.88rem; color:var(--tx2); }
+        .crow svg { width:18px; height:18px; fill:var(--c); flex-shrink:0; }
+
+        /* ── AVALIAÇÕES ── */
+        #avaliacoes { background:var(--dk); }
+
+        .av-head { text-align:center; margin-bottom:2.8rem; }
+        .av-head .sec-label { justify-content:center; }
+        .av-head .sec-label::before { display:none; }
+
+        .rating-row { display:flex; align-items:center; justify-content:center; gap:1.5rem; margin:1.4rem 0 2rem; flex-wrap:wrap; }
+        .r-big { font-family:var(--fd); font-size:5rem; font-weight:700; color:var(--c); line-height:1; }
+        .r-detail { display:flex; flex-direction:column; gap:.35rem; }
+        .stars { display:flex; gap:3px; }
+        .star   { color:#F59E0B; font-size:1.25rem; }
+        .star.e { color:rgba(0,0,0,.15); }
+        .r-count { font-size:.82rem; color:var(--tx3); }
+
+        .rev-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-bottom:2.5rem; }
+        .rev-card { background:var(--card); border:1px solid var(--brd); border-radius:12px; padding:1.5rem; box-shadow:var(--sh); transition:all .4s var(--ease); }
+        .rev-card:hover { border-color:var(--c); transform:translateY(-5px); box-shadow:var(--sh-h); }
+        .rev-top { display:flex; align-items:center; gap:.7rem; margin-bottom:.7rem; }
+        .av-avatar { width:40px; height:40px; background:linear-gradient(135deg,var(--cd),var(--c)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.95rem; color:#fff; flex-shrink:0; }
+        .av-name { font-size:.88rem; font-weight:600; color:var(--tx); }
+        .av-date { font-size:.72rem; color:var(--tx3); }
+        .rev-stars { display:flex; gap:2px; margin-bottom:.7rem; }
+        .rev-stars .star { font-size:.88rem; }
+        .rev-txt { font-size:.83rem; color:var(--tx2); line-height:1.65; }
+        .av-cta { text-align:center; }
+
+        /* ── CONTATO ── */
+        #contato { background:var(--bk); }
+
+        .cont-wrap { display:grid; grid-template-columns:1fr 1.1fr; gap:3rem; align-items:start; }
+        .cont-cards { display:flex; flex-direction:column; gap:.9rem; margin-top:2rem; }
+        .cont-card { display:flex; align-items:flex-start; gap:1rem; padding:1.2rem; background:var(--card); border:1px solid var(--brd); border-radius:10px; box-shadow:var(--sh); transition:all .3s; }
+        .cont-card:hover { border-color:var(--c); box-shadow:var(--sh-h); }
+        .cont-ico { width:42px; height:42px; background:var(--c10); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .cont-ico svg { width:20px; height:20px; fill:var(--c); }
+        .cont-lbl { font-size:.66rem; letter-spacing:.15em; text-transform:uppercase; color:var(--c); font-weight:600; margin-bottom:.25rem; }
+        .cont-txt { font-size:.88rem; color:var(--tx2); line-height:1.5; }
+        .cont-txt a:hover { color:var(--c); }
+
+        .mapa { border-radius:14px; overflow:hidden; border:1px solid var(--brd); box-shadow:var(--sh); }
+        .mapa iframe { width:100%; height:420px; border:none; display:block; }
+
+        /* ── FOOTER (escuro para contraste) ── */
+        footer { background:#0d0d14; padding:3rem 5% 1.8rem; }
+        .ft-top { display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; }
+        .ft-brand p { font-size:.83rem; color:#77778a; line-height:1.65; max-width:270px; margin-top:.75rem; }
+        .ft-logo-txt { font-family:var(--fd); font-size:1.4rem; font-weight:700; letter-spacing:.22em; color:#fff; }
+        .ft-logo-txt em { font-style:normal; color:var(--c); }
+        .ft-logo-row { display:flex; align-items:center; gap:.6rem; margin-bottom:.5rem; }
+        .ft-logo-row svg.crown { width:20px; fill:var(--c); }
+        .socials { display:flex; gap:.65rem; margin-top:1.2rem; }
+        .soc { width:36px; height:36px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:6px; display:flex; align-items:center; justify-content:center; transition:all .3s; }
+        .soc:hover { background:var(--c10); border-color:var(--c); }
+        .soc svg { width:17px; height:17px; fill:#77778a; transition:fill .3s; }
+        .soc:hover svg { fill:var(--c); }
+        .ft-col h4 { font-size:.74rem; font-weight:600; letter-spacing:.17em; text-transform:uppercase; color:var(--c); margin-bottom:1rem; }
+        .ft-col ul { display:flex; flex-direction:column; gap:.55rem; }
+        .ft-col ul li a { font-size:.83rem; color:#77778a; transition:color .3s; }
+        .ft-col ul li a:hover { color:var(--c); }
+        .ft-bot { border-top:1px solid rgba(255,255,255,.06); padding-top:1.4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+        .ft-bot p { font-size:.76rem; color:#77778a; }
+        .ft-bot a { color:var(--c); }
+        .seo { font-size:0; color:transparent; height:0; overflow:hidden; display:block; }
+
+        /* ── WHATSAPP FLUTUANTE ── */
+        .wa-float { position:fixed; bottom:1.8rem; right:1.8rem; z-index:997; display:flex; flex-direction:column; align-items:flex-end; gap:.65rem; }
+        .wa-tip { background:#fff; border:1px solid var(--brd); box-shadow:var(--sh-h); border-radius:6px; padding:.5rem .9rem; font-size:.78rem; color:var(--tx2); white-space:nowrap; opacity:0; transform:translateX(8px); transition:all .3s; pointer-events:none; }
+        .wa-float:hover .wa-tip { opacity:1; transform:translateX(0); }
+        .wa-btn { width:58px; height:58px; background:var(--wa); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 28px rgba(37,211,102,.42); transition:all .4s var(--ease); animation:wap 3.5s ease-in-out infinite; }
+        .wa-btn:hover { transform:scale(1.1); box-shadow:0 12px 38px rgba(37,211,102,.65); }
+        .wa-btn svg { width:30px; height:30px; fill:#fff; }
+        @keyframes wap { 0%,100%{box-shadow:0 8px 28px rgba(37,211,102,.42);} 50%{box-shadow:0 8px 48px rgba(37,211,102,.7);} }
+
+        /* ── RESPONSIVO ── */
+        @media (max-width:1100px) { .prod-grid { grid-template-columns:repeat(2,1fr); } }
+
+        @media (max-width:900px) {
+            .nav-links { display:none; }
+            .ham { display:flex; }
+            #hero { flex-direction:column; }
+            .hero-blob { width:100%; height:45%; top:auto; bottom:0; clip-path:ellipse(100% 60% at 50% 100%); }
+            .hero-left { max-width:100%; padding:calc(var(--nav)+2.5rem) 5% 2rem; }
+            .hero-right { flex:none; width:100%; padding:0 5% 4rem; justify-content:flex-start; }
+            .hero-img-wrap { max-width:280px; }
+            .hf-card.tl { left:-6%; }
+            .hf-card.br { right:-4%; }
+            .marcas-wrap, .serv-wrap, .cont-wrap { grid-template-columns:1fr; gap:2.5rem; }
+            .ft-top { grid-template-columns:1fr 1fr; }
+            .ft-brand { grid-column:1/-1; }
+            .rev-grid { grid-template-columns:1fr; }
+        }
+
+        @media (max-width:600px) {
+            section { padding:3rem 1.25rem; }
+            .prod-grid { grid-template-columns:1fr; }
+            .stats { grid-template-columns:1fr 1fr; }
+            .ft-top { grid-template-columns:1fr; }
+            .hero-btns { flex-direction:column; align-items:flex-start; }
+            .ft-bot { flex-direction:column; text-align:center; }
+            .hf-card { display:none; }
+            .hero-stats { flex-wrap:wrap; gap:.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="nav">
+    <a href="#" class="logo" aria-label="Óticas Vivazz">
+        <svg class="crown" viewBox="0 0 64 38" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <polygon points="32,2 42,20 56,10 52,38 12,38 8,10 22,20"/>
+            <circle cx="8"  cy="8"  r="4.5"/>
+            <circle cx="32" cy="2"  r="4.5"/>
+            <circle cx="56" cy="8"  r="4.5"/>
+        </svg>
+        <span class="logo-txt">VIV<em>A</em>ZZ</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#marcas">Marcas</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a class="nav-cta"
+               href="https://wa.me/5514991888044?text=Ol%C3%A1!+Vim+pelo+site+e+gostaria+de+saber+mais.&utm_source=site&utm_medium=cta&utm_campaign=vivazz"
+               target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+
+    <button class="ham" id="ham" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Menu mobile -->
+<div class="mob-menu" id="mobMenu">
+    <button class="mob-close" id="mobClose" aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+    </button>
+    <a href="#marcas"     class="ml">Marcas</a>
+    <a href="#produtos"   class="ml">Produtos</a>
+    <a href="#servicos"   class="ml">Serviços</a>
+    <a href="#avaliacoes" class="ml">Avaliações</a>
+    <a href="#contato"    class="ml">Contato</a>
+</div>
+
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+    <!-- Fundo turquesa à direita -->
+    <div class="hero-blob" aria-hidden="true"></div>
+
+    <!-- Pontos decorativos -->
+    <div class="hero-dots left" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- Coluna esquerda: texto -->
+    <div class="hero-left">
+        <div class="hero-badge">Avaré · SP · Desde 2009</div>
+
+        <h1 class="hero-h1">
+            Enxergue<br>o Mundo com<br><em>Estilo</em>
+        </h1>
+
+        <p class="hero-sub">
+            Óculos de grau, solar e lentes de contato com marcas premium. Atendimento personalizado há mais de 17 anos.
+        </p>
+
+        <div class="hero-btns">
+            <a class="btn-p"
+               href="https://wa.me/5514991888044?text=Ol%C3%A1!+Vim+pelo+site+e+quero+saber+mais.&utm_source=site&utm_medium=cta&utm_campaign=vivazz"
+               target="_blank" rel="noopener">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Falar no WhatsApp
+            </a>
+            <a class="btn-s" href="#produtos">
+                Ver Produtos
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <!-- Números sobrepostos -->
+        <div class="hero-stats">
+            <div class="hstat">
+                <span class="hstat-n">17+</span>
+                <span class="hstat-l">Anos</span>
+            </div>
+            <div class="hstat-sep"></div>
+            <div class="hstat">
+                <span class="hstat-n">4.8★</span>
+                <span class="hstat-l">Google</span>
+            </div>
+            <div class="hstat-sep"></div>
+            <div class="hstat">
+                <span class="hstat-n">6</span>
+                <span class="hstat-l">Marcas Premium</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coluna direita: imagem -->
+    <div class="hero-right">
+        <div class="hero-img-wrap">
+
+            <img src="hero-model.jpg.png"
+                 alt="Pessoa usando óculos Vivazz"
+                 class="hero-img hero-img-photo">
+
+            <!-- Cards flutuantes -->
+            <div class="hf-card tl" aria-hidden="true">
+                <span class="hf-emoji">👑</span>
+                <div class="hf-info">
+                    <strong>Marcas Premium</strong>
+                    <span>Hoya · Zeiss · Delta</span>
+                </div>
+            </div>
+
+            <div class="hf-card br" aria-hidden="true">
+                <span class="hf-emoji">⭐</span>
+                <div class="hf-info">
+                    <strong>4.8 Google</strong>
+                    <span>12 avaliações</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══ TICKER DE MARCAS ══ -->
+<div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker-border top"></div>
+    <div class="ticker-track">
+        <div class="ticker-list">
+            <span class="tk-item"><span class="tk-dot">◆</span> Hoya</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Zeiss</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Delta</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Johnson &amp; Johnson</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Bausch &amp; Lomb</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Sabrina Sato Eyewear</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Hoya</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Zeiss</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Delta</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Johnson &amp; Johnson</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Bausch &amp; Lomb</span>
+            <span class="tk-item"><span class="tk-dot">◆</span> Sabrina Sato Eyewear</span>
+        </div>
+    </div>
+    <div class="ticker-border bot"></div>
+</div>
+
+
+<!-- ══ MARCAS / NÚMEROS ══ -->
+<section id="marcas">
+    <div class="marcas-wrap">
+        <div>
+            <div class="sec-label fu">Experiência &amp; Confiança</div>
+            <h2 class="sec-title fu d1">Números que<br><em>falam por si</em></h2>
+            <div class="stats">
+                <div class="stat fu d1">
+                    <div class="stat-n" data-target="17">0</div>
+                    <div class="stat-l">Anos de experiência</div>
+                </div>
+                <div class="stat fu d2">
+                    <div class="stat-n" data-target="6">0</div>
+                    <div class="stat-l">Marcas premium</div>
+                </div>
+                <div class="stat fu d3">
+                    <div class="stat-n" data-raw="true">4.8★</div>
+                    <div class="stat-l">Avaliação Google</div>
+                </div>
+                <div class="stat fu d4">
+                    <div class="stat-n" data-raw="true">100%</div>
+                    <div class="stat-l">Atendimento Personalizado</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brands-right fu d2">
+            <div class="sec-label">Marcas Parceiras</div>
+            <h2 class="sec-title">Trabalhamos com<br><em>o melhor</em></h2>
+            <p class="sec-desc">Trabalhamos com as marcas mais respeitadas do mercado óptico, garantindo qualidade e precisão em cada produto.</p>
+            <div class="brand-chips" style="margin-top:1.5rem;">
+                <span class="chip">Hoya</span>
+                <span class="chip">Zeiss</span>
+                <span class="chip">Delta</span>
+                <span class="chip">Johnson &amp; Johnson</span>
+                <span class="chip">Bausch &amp; Lomb</span>
+                <span class="chip">Sabrina Sato Eyewear</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══ PRODUTOS ══ -->
+<section id="produtos">
+    <div class="prod-head">
+        <div>
+            <div class="sec-label fu">Nossos Produtos</div>
+            <h2 class="sec-title fu d1">O que você<br><em>precisa ver</em></h2>
+        </div>
+        <p class="sec-desc fu d2">Converse com nossa equipe pelo WhatsApp e encontre o produto ideal para você.</p>
+    </div>
+
+    <div class="prod-grid">
+        <article class="prod-card fu d1">
+            <div class="prod-icon-area"><img src="oculos-grau.jpg" alt="Óculos de grau" class="prod-img"></div>
+            <div class="prod-body">
+                <h3>Óculos de Grau</h3>
+                <p>Armações modernas e clássicas para todos os estilos. Do casual ao executivo, encontre o que combina com você.</p>
+                <a class="btn-wa" href="https://wa.me/5514991888044?text=Ol%C3%A1!+Tenho+interesse+em+%C3%B3culos+de+grau.&utm_source=site&utm_medium=produto&utm_campaign=vivazz" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Consultar
+                </a>
+            </div>
+        </article>
+
+        <article class="prod-card fu d2">
+            <div class="prod-icon-area"><img src="oculos-sol.jpg" alt="Óculos de sol" class="prod-img"></div>
+            <div class="prod-body">
+                <h3>Óculos de Sol</h3>
+                <p>Proteção UV total com design sofisticado. Tendências nacionais e internacionais nas melhores marcas.</p>
+                <a class="btn-wa" href="https://wa.me/5514991888044?text=Ol%C3%A1!+Tenho+interesse+em+%C3%B3culos+de+sol.&utm_source=site&utm_medium=produto&utm_campaign=vivazz" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Consultar
+                </a>
+            </div>
+        </article>
+
+        <article class="prod-card fu d3">
+            <div class="prod-icon-area"><img src="lentes.jpg" alt="Lentes de contato" class="prod-img"></div>
+            <div class="prod-body">
+                <h3>Lentes de Contato</h3>
+                <p>Johnson &amp; Johnson, Bausch &amp; Lomb e mais. Lentes diárias, mensais e coloridas com adaptação personalizada.</p>
+                <a class="btn-wa" href="https://wa.me/5514991888044?text=Ol%C3%A1!+Tenho+interesse+em+lentes+de+contato.&utm_source=site&utm_medium=produto&utm_campaign=vivazz" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Consultar
+                </a>
+            </div>
+        </article>
+
+        <article class="prod-card fu d4">
+            <div class="prod-icon-area">
+                <svg class="prod-svg-icon" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Acessórios ópticos">
+                    <!-- estojo base -->
+                    <rect x="10" y="30" width="68" height="38" rx="10" fill="rgba(0,188,212,.10)" stroke="currentColor" stroke-width="2.2"/>
+                    <!-- tampa do estojo -->
+                    <path d="M10 40 Q44 22 78 40" stroke="currentColor" stroke-width="2.2" fill="rgba(0,188,212,.06)" stroke-linejoin="round"/>
+                    <!-- fecho central -->
+                    <rect x="39" y="45" width="10" height="7" rx="3.5" fill="currentColor" opacity=".7"/>
+                    <!-- óculos dentro (silhueta sutil) -->
+                    <path d="M22 57 Q28 52 34 57 Q40 62 46 57 Q52 52 58 57 Q64 62 66 57" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" opacity=".45"/>
+                    <!-- reflexo na tampa -->
+                    <path d="M20 35 Q44 27 68 35" stroke="currentColor" stroke-width="1" fill="none" opacity=".3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="prod-body">
+                <h3>Acessórios</h3>
+                <p>Estojos, cordões, líquidos de limpeza, flanelas e tudo para cuidar dos seus óculos com atenção.</p>
+                <a class="btn-wa" href="https://wa.me/5514991888044?text=Ol%C3%A1!+Tenho+interesse+em+acess%C3%B3rios.&utm_source=site&utm_medium=produto&utm_campaign=vivazz" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Consultar
+                </a>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+<!-- ══ SERVIÇOS ══ -->
+<section id="servicos">
+    <div class="serv-wrap">
+        <div>
+            <div class="sec-label fu">Nossos Serviços</div>
+            <h2 class="sec-title fu d1">Mais do que<br><em>vender, cuidamos</em></h2>
+            <div class="serv-list">
+                <div class="serv-item fu d1">
+                    <div class="serv-ico" aria-hidden="true">🔧</div>
+                    <div class="serv-txt">
+                        <h4>Manutenção de Óculos</h4>
+                        <p>Ajuste de hastes, troca de parafusos, polimento de armações e reparos gerais. Deixamos seu óculos como novo.</p>
+                    </div>
+                </div>
+                <div class="serv-item fu d2">
+                    <div class="serv-ico" aria-hidden="true">🔄</div>
+                    <div class="serv-txt">
+                        <h4>Troca de Lentes</h4>
+                        <p>Lentes Hoya e Zeiss com precisão óptica. Mantenha sua armação favorita com lentes novas e de alta qualidade.</p>
+                    </div>
+                </div>
+                <div class="serv-item fu d3">
+                    <div class="serv-ico" aria-hidden="true">💡</div>
+                    <div class="serv-txt">
+                        <h4>Consultoria de Lentes de Contato</h4>
+                        <p>Adaptação personalizada, orientação de uso e higienização. Cuidamos da saúde dos seus olhos com atenção total.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fu d2">
+            <div class="hbox">
+                <h3>Horário de<br><em style="font-style:italic;color:var(--c)">Atendimento</em></h3>
+                <div class="h-row"><span class="h-dia">Segunda — Sexta</span><span class="h-hr">9h às 18h</span></div>
+                <div class="h-row"><span class="h-dia">Sábado</span><span class="h-hr">9h às 13h</span></div>
+                <div class="h-row"><span class="h-dia">Domingo</span><span class="h-hr off">Fechado</span></div>
+                <div class="cinfo">
+                    <div class="crow">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        <span>Rua Pernambuco, 1653 — Centro, Avaré/SP</span>
+                    </div>
+                    <div class="crow">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        <a href="tel:+5514991888044">(14) 99188-8044</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══ AVALIAÇÕES ══ -->
+<section id="avaliacoes">
+    <div class="av-head fu">
+        <div class="sec-label">O que dizem nossos clientes</div>
+        <h2 class="sec-title">Avaliações <em>Google</em></h2>
+        <div class="rating-row">
+            <div class="r-big">4.8</div>
+            <div class="r-detail">
+                <div class="stars" aria-label="5 de 5 estrelas">
+                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                </div>
+                <div class="r-count">12 avaliações no Google</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rev-grid">
+        <div class="rev-card fu d1">
+            <div class="rev-top">
+                <div class="av-avatar" aria-hidden="true">M</div>
+                <div><div class="av-name">Maria Aparecida</div><div class="av-date">Há 2 meses</div></div>
+            </div>
+            <div class="rev-stars" aria-label="5 estrelas"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="rev-txt">Atendimento excelente! Me ajudaram a escolher a armação perfeita. As lentes Hoya são incríveis, enxergo muito melhor agora.</p>
+        </div>
+        <div class="rev-card fu d2">
+            <div class="rev-top">
+                <div class="av-avatar" aria-hidden="true">J</div>
+                <div><div class="av-name">João Carlos</div><div class="av-date">Há 3 meses</div></div>
+            </div>
+            <div class="rev-stars" aria-label="5 estrelas"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="rev-txt">Muito bom o atendimento. Comprei minhas lentes de contato e fui bem orientado sobre o uso. Preço justo e produto de qualidade.</p>
+        </div>
+        <div class="rev-card fu d3">
+            <div class="rev-top">
+                <div class="av-avatar" aria-hidden="true">A</div>
+                <div><div class="av-name">Ana Paula</div><div class="av-date">Há 4 meses</div></div>
+            </div>
+            <div class="rev-stars" aria-label="5 estrelas"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+            <p class="rev-txt">Fui trocar a lente do meu óculos e ficou perfeito! Rápido, eficiente e ótimo custo-benefício. Com certeza voltarei.</p>
+        </div>
+    </div>
+
+    <div class="av-cta fu">
+        <a class="btn-s" style="display:inline-flex;"
+           href="https://search.google.com/local/writereview?placeid=ChIJoticasvivazz"
+           target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            Deixar Avaliação no Google
+        </a>
+    </div>
+</section>
+
+
+<!-- ══ CONTATO ══ -->
+<section id="contato">
+    <div class="cont-wrap">
+        <div>
+            <div class="sec-label fu">Onde Estamos</div>
+            <h2 class="sec-title fu d1">Venha nos<br><em>visitar</em></h2>
+            <p class="sec-desc fu d2" style="margin-bottom:0">Estamos no centro de Avaré, prontos para te atender com carinho e profissionalismo.</p>
+            <div class="cont-cards">
+                <div class="cont-card fu d1">
+                    <div class="cont-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
+                    <div><div class="cont-lbl">Endereço</div><p class="cont-txt">Rua Pernambuco, 1653 — Centro<br>Avaré/SP</p></div>
+                </div>
+                <div class="cont-card fu d2">
+                    <div class="cont-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                    <div><div class="cont-lbl">Telefone / WhatsApp</div><p class="cont-txt"><a href="tel:+5514991888044">(14) 99188-8044</a></p></div>
+                </div>
+                <div class="cont-card fu d3">
+                    <div class="cont-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+                    <div><div class="cont-lbl">Instagram</div><p class="cont-txt"><a href="https://instagram.com/oticasvivazz.avare" target="_blank" rel="noopener">@oticasvivazz.avare</a></p></div>
+                </div>
+                <div class="cont-card fu d4">
+                    <div class="cont-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg></div>
+                    <div><div class="cont-lbl">Horário</div><p class="cont-txt">Seg–Sex: 9h às 18h · Sáb: 9h às 13h<br>Domingo: Fechado</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mapa fu d2">
+            <iframe
+                src="https://maps.google.com/maps?q=Rua%20Pernambuco%201653%20Centro%20Avar%C3%A9%20SP&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Localização Óticas Vivazz">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+    <div class="ft-top">
+        <div class="ft-brand fu">
+            <div class="ft-logo-row">
+                <svg class="crown" viewBox="0 0 64 38" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <polygon points="32,2 42,20 56,10 52,38 12,38 8,10 22,20"/>
+                    <circle cx="8" cy="8" r="4.5"/><circle cx="32" cy="2" r="4.5"/><circle cx="56" cy="8" r="4.5"/>
+                </svg>
+                <span class="ft-logo-txt">VIV<em>A</em>ZZ</span>
+            </div>
+            <p>Óticas Vivazz — Avaré/SP. Há mais de 17 anos oferecendo qualidade, estilo e cuidado visual para toda a família.</p>
+            <div class="socials">
+                <a class="soc" href="https://instagram.com/oticasvivazz.avare" target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a class="soc" href="https://wa.me/5514991888044?utm_source=site&utm_medium=footer&utm_campaign=vivazz" target="_blank" rel="noopener" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="ft-col fu d1">
+            <h4>Navegação</h4>
+            <ul>
+                <li><a href="#marcas">Marcas</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#avaliacoes">Avaliações</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="ft-col fu d2">
+            <h4>Produtos</h4>
+            <ul>
+                <li><a href="#produtos">Óculos de Grau</a></li>
+                <li><a href="#produtos">Óculos de Sol</a></li>
+                <li><a href="#produtos">Lentes de Contato</a></li>
+                <li><a href="#produtos">Acessórios</a></li>
+                <li><a href="#servicos">Manutenção</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="ft-bot">
+        <p>© 2025 Óticas Vivazz — Avaré/SP · <a href="https://oticavivazz.com.br">oticavivazz.com.br</a></p>
+        <p>Rua Pernambuco, 1653 — Centro, Avaré/SP · (14) 99188-8044</p>
+    </div>
+
+    <span class="seo">Óptica em Avaré | Óculos de Grau em Avaré | Lentes de Contato em Avaré | Óculos de Sol Avaré | Óticas Avaré SP</span>
+</footer>
+
+
+<!-- ══ WHATSAPP FLUTUANTE ══ -->
+<div class="wa-float">
+    <div class="wa-tip" aria-hidden="true">Falar agora no WhatsApp</div>
+    <a class="wa-btn"
+       href="https://wa.me/5514991888044?text=Ol%C3%A1!+Vim+pelo+site+da+Vivazz+e+quero+saber+mais.&utm_source=site&utm_medium=float&utm_campaign=vivazz"
+       target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+</div>
+
+
+<!-- ══ JAVASCRIPT ══ -->
+<script>
+    /* Navbar scroll */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('s', scrollY > 60), { passive:true });
+
+    /* Menu mobile */
+    const ham = document.getElementById('ham');
+    const mob = document.getElementById('mobMenu');
+    const cls = document.getElementById('mobClose');
+    const open  = () => { mob.classList.add('open');    document.body.style.overflow='hidden'; };
+    const close = () => { mob.classList.remove('open'); document.body.style.overflow=''; };
+    ham.addEventListener('click', open);
+    cls.addEventListener('click', close);
+    document.querySelectorAll('.ml').forEach(l => l.addEventListener('click', close));
+
+    /* Fade-up */
+    const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('v'); }), { threshold:.1, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.fu').forEach(el => io.observe(el));
+
+    /* Contadores */
+    const cio = new IntersectionObserver(es => {
+        es.forEach(e => {
+            if (!e.isIntersecting || e.target.dataset.done || e.target.dataset.raw) return;
+            e.target.dataset.done = '1';
+            const t = parseFloat(e.target.dataset.target);
+            if (isNaN(t)) return;
+            const sfx = e.target.dataset.target.includes('.') ? '' : '+';
+            const dur = 1500, s = performance.now();
+            const tick = now => {
+                const p = Math.min((now-s)/dur,1), ease = 1-Math.pow(1-p,3);
+                e.target.textContent = Math.round(ease*t) + sfx;
+                if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+        });
+    }, { threshold:.5 });
+    document.querySelectorAll('.stat-n[data-target]').forEach(n => cio.observe(n));
+
+    /* Smooth scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + scrollY - 72, behavior:'smooth' }); }
+        });
+    });
+</script>
+
+</body>
+</html>
